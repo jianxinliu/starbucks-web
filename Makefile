@@ -9,7 +9,7 @@ VERSION:=$(shell git rev-parse --abbrev-ref HEAD | grep HEAD >> /dev/null && git
 apis:
 	#https://github.com/wumitech-com/operation-api/blob/main/gen/swagger/operation.swagger.json
 	rm -rf src/api/apis
-	docker run --rm -it -v ${PWD}/src/api:/local openapitools/openapi-generator-cli:v6.2.1 generate -i /local/starbucks-api.swagger.json -g typescript-axios -o /local/apis
+	docker run --rm -it -v ${PWD}/src/api:/local openapitools/openapi-generator-cli:v6.2.1 generate -i /local/starbucks-api.swagger.json -g typescript-fetch -o /local/apis
 
 .PHONY: build
 build:
