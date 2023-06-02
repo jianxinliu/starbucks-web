@@ -52,10 +52,13 @@ vite 的相关插件，项目中安装的：
 
 ### 根据 swagger 文件自动生成 api 代码
 
-1. 更新 src/api/starbucks-api.swagger.json 文件
+1. 更新 src/api/starbucks-api.swagger.json 文件 （后端生产）
 2. 安装 docker
 3. 安装 make
 4. 运行 `make apis`
+5. `src/api/apis` 下的文件都是生产的，不用管，只管调用 `src/api/index.ts` 中对象的方法即可
+
+请求相关的代码就不用管了，直接生成，直接用。更不用对接口
 
 
 ### vite 配置 devServer
