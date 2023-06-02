@@ -25,6 +25,18 @@ export interface LoginResponse {
      * @memberof LoginResponse
      */
     token: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof LoginResponse
+     */
+    code: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LoginResponse
+     */
+    message: string;
 }
 
 /**
@@ -33,6 +45,8 @@ export interface LoginResponse {
 export function instanceOfLoginResponse(value: object): boolean {
     let isInstance = true;
     isInstance = isInstance && "token" in value;
+    isInstance = isInstance && "code" in value;
+    isInstance = isInstance && "message" in value;
 
     return isInstance;
 }
@@ -48,6 +62,8 @@ export function LoginResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'token': json['token'],
+        'code': json['code'],
+        'message': json['message'],
     };
 }
 
@@ -61,6 +77,8 @@ export function LoginResponseToJSON(value?: LoginResponse | null): any {
     return {
         
         'token': value.token,
+        'code': value.code,
+        'message': value.message,
     };
 }
 

@@ -58,3 +58,29 @@ vite 的相关插件，项目中安装的：
 4. 运行 `make apis`
 
 
+### vite 配置 devServer
+
+vite 配置：
+
+```js
+server: {
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8888/',
+      changeOrigin: true,
+      secure: false,
+      rewrite: (path) => path.replace(/^\/api/, '')
+    },
+    cors: 'false'
+  },
+}
+```
+
+请求参数调整：
+
+```js
+const isDev = import.meta.env.MODE === 'dev'
+const configParams: ConfigurationParameters = {
+    basePath: import.meta.env.VITE_API_BASE_PATH + isDev ? '/api' : '',
+};
+```

@@ -11,6 +11,7 @@ models/CreateOrderResponse.ts
 models/CreateOrderResponseAllOf.ts
 models/LoginHandlerRequest.ts
 models/LoginResponse.ts
+models/LoginResponseAllOf.ts
 models/OrderDoneHandlerRequest.ts
 models/UpgradeToVipRequest.ts
 models/User.ts

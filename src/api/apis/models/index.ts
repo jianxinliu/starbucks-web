@@ -9,6 +9,7 @@ export * from './CreateOrderResponse';
 export * from './CreateOrderResponseAllOf';
 export * from './LoginHandlerRequest';
 export * from './LoginResponse';
+export * from './LoginResponseAllOf';
 export * from './OrderDoneHandlerRequest';
 export * from './UpgradeToVipRequest';
 export * from './User';

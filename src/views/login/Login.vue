@@ -16,8 +16,13 @@
 </template>
 
 <script lang="ts" setup>
+import { ElMessage } from 'element-plus'
+import { StarBucksApis } from '@/api';
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import { LoginResponse } from '@/api/apis';
+import { responseHandler } from '@/utils/common'
+
 const router = useRouter()
 
 const loginForm = reactive({
@@ -26,7 +31,21 @@ const loginForm = reactive({
 })
 
 function login() {
-  router.push({ path: '/main'})
+  StarBucksApis.loginHandler({
+    loginHandlerRequest: {
+      userName: loginForm.userName,
+      password: loginForm.password
+    }
+  })
+    .then(responseHandler)
+    .then((res: LoginResponse) => {
+      ElMessage.success('登录成功')
+      localStorage.setItem('auth', res.token)
+      router.push({ path: '/main' })
+    })
+    .catch(err => {
+      ElMessage.error('登录失败： ' + err)
+    })
 }
 </script>
 
